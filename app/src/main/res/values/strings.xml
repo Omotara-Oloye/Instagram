@@ -15,4 +15,7 @@
     <string name="log_out">LOG OUT</string>
     <string name="submit">SUBMIT!</string>
     <string name="takePhoto">Take Photo</string>
+    <string name="home">Home</string>
+    <string name="add_photo">add photo</string>
+    <string name="profile">profile</string>
 </resources>

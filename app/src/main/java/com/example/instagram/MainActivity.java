@@ -30,6 +30,15 @@ public class MainActivity extends AppCompatActivity {
         logInButton = findViewById(R.id.login_btn);
         signUpButton = findViewById(R.id.signUp_btn);
 
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if(currentUser != null){
+            Log.d("LoginActivity", "Login successful");
+            final Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+
         logInButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

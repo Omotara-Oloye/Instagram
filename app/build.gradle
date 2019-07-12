@@ -22,6 +22,11 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    // Glide v4 uses this new annotation processor -- see https://bumptech.github.io/glide/doc/generatedapi.html
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 //    androidTestImplementation 'android.test:runner:1.2.0'
 //    androidTestImplementation 'android.test.espresso:espresso-core:3.2.0'
     implementation 'com.android.support:appcompat-v7:28.0.0'
