@@ -20,17 +20,17 @@ public class HomeActivity extends AppCompatActivity {
 
 
     private BottomNavigationView bottomNavigationView;
+    public static FragmentManager fragmentManager;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        final FragmentManager fragmentManager = getSupportFragmentManager();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
-
+        fragmentManager = getSupportFragmentManager();
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -41,7 +41,6 @@ public class HomeActivity extends AppCompatActivity {
                 Fragment fragment;
                 switch (menuItem.getItemId()) {
                     case R.id.action_home:
-                        //TODO -- swap fragment here
                         fragment = new PostsFragment();
 //                        Toast.makeText(HomeActivity.this, "Home!", Toast.LENGTH_LONG).show();
                         break;
@@ -51,7 +50,6 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.action_profile:
                     default:
-                        //TODO -- swap fragment here
                         fragment = new ProfileFragment();
 //                        Toast.makeText(HomeActivity.this, "Profile!", Toast.LENGTH_LONG).show();
                         break;
@@ -68,7 +66,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ParseUser.logOut();
-                final Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                final Intent intent = new Intent(HomeActivity.this, LogInActivity.class);
                 startActivity(intent);
                 finish();
                 ParseUser currentUser = ParseUser.getCurrentUser();

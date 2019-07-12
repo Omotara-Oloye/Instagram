@@ -88,13 +88,5 @@ public class PostsFragment extends Fragment {
             }
         });
     }
-    public void clear() {
-        mPosts.clear();
-        adapter.notifyDataSetChanged();
-    }
-    public void addAll(List<Post> list) {
-        mPosts.addAll(list);
-        adapter.notifyDataSetChanged();
-    }
 
 }

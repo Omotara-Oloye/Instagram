@@ -14,7 +14,7 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
-public class MainActivity extends AppCompatActivity {
+public class LogInActivity extends AppCompatActivity {
 
     private EditText usernameInput;
     private EditText passwordInput;
@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
         ParseUser currentUser = ParseUser.getCurrentUser();
         if(currentUser != null){
             Log.d("LoginActivity", "Login successful");
-            final Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            final Intent intent = new Intent(LogInActivity.this, HomeActivity.class);
             startActivity(intent);
-            finish();
+
         }
 
 
@@ -59,14 +59,14 @@ public class MainActivity extends AppCompatActivity {
                 user.signUpInBackground(new SignUpCallback() {
                     public void done(ParseException e) {
                         if (e == null) {
-                            Toast.makeText(MainActivity.this, "Welcome to Instagram", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LogInActivity.this, "Welcome to Instagram", Toast.LENGTH_LONG).show();
                         } else {
                             // Sign up didn't succeed. Look at the ParseException
                             // to figure out what went wrong
                         }
                     }
                 });
-                final Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                final Intent intent = new Intent(LogInActivity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -74,12 +74,11 @@ public class MainActivity extends AppCompatActivity {
     }
     private void logIn(String username, String password){
         ParseUser.logInInBackground(username, password, new LogInCallback() {
-            ParseUser currentUser = ParseUser.getCurrentUser();
             @Override
             public void done(ParseUser user, ParseException e) {
-                if(currentUser != null){
+                if(e == null){
                     Log.d("LoginActivity", "Login successful");
-                    final Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    final Intent intent = new Intent(LogInActivity.this, HomeActivity.class);
                     startActivity(intent);
                     finish();
                 } else{
